@@ -1,9 +1,20 @@
 import tkinter as tk
+from tkinter import ttk
 
 class App:
     def __init__(self, master):
         self.master = master
         master.title("Lista de Compras")
+        master.geometry("400x400")
+
+        # widgets ttk
+
+        self.style = ttk.Style()
+        self.style.theme_use("clam")
+        self.style.configure("TButton", padding=10, font=("Helvetica", 10))
+        self.style.configure("TEntry", padding=10, font=("Helvetica", 12))
+        self.style.configure("TLabel", padding=10, font=("Helvetica", 12))
+        self.style.configure("TListbox", padding=10, font=("Helvetica", 12))
 
         #Area para adicionar novos itens a lista
         self.entry = tk.Entry(master)
@@ -25,6 +36,12 @@ class App:
         # Area para exibir a lista de compras
         self.listbox = tk.Listbox(master)
         self.listbox.pack()
+
+        # Tornando a grade responsiva
+        master.grid_rowconfigure(2, weight=1)
+        master.grid_columnconfigure(0, weight=1)
+        master.grid_columnconfigure(1, weight=1)
+        master.grid_columnconfigure(2, weight=1)
 
         # Carrega uma lista existente
         self.load_list()
