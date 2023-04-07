@@ -1,0 +1,1 @@
+Um simples app de lista de compras 
