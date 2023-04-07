@@ -17,25 +17,25 @@ class App:
         self.style.configure("TListbox", padding=10, font=("Helvetica", 12))
 
         #Area para adicionar novos itens a lista
-        self.entry = tk.Entry(master)
-        self.entry.pack()
+        self.entry = ttk.Entry(master)
+        self.entry.grid(row=0, column=0, padx=10, pady=10)
 
         # Botao para adicionar item a lista
-        self.add_button = tk.Button(master, text="Adicionar", command=self.add_item)
-        self.add_button.pack()
+        self.add_button = ttk.Button(master, text="Adicionar", command=self.add_item)
+        self.add_button.grid(row=0, column=1, padx=10, pady=10)
 
         #Botao para remover um item da lista
 
-        self.remove_button = tk.Button(master, text="Remover", command=self.remove_item)
-        self.remove_button.pack()
+        self.remove_button = ttk.Button(master, text="Remover", command=self.remove_item)
+        self.remove_button.grid(row=0, column=2, padx=10, pady=10)
 
         # Botao para salvar a lista em um arquivo de texto
-        self.save_button = tk.Button(master, text="Salvar", command=self.save_list)
-        self.save_button.pack()
+        self.save_button = ttk.Button(master, text="Salvar", command=self.save_list)
+        self.save_button.grid(row=1, column=0, padx=10, pady=10, columnspan=3)
 
         # Area para exibir a lista de compras
-        self.listbox = tk.Listbox(master)
-        self.listbox.pack()
+        self.listbox = tk.Listbox(master, height=15)
+        self.listbox.grid(row=2, column=0, padx=10, pady=10, columnspan=3, sticky="NSEW")
 
         # Tornando a grade responsiva
         master.grid_rowconfigure(2, weight=1)
