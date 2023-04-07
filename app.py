@@ -13,6 +13,11 @@ class App:
         self.add_button = tk.Button(master, text="Adicionar", command=self.add_item)
         self.add_button.pack()
 
+        #Botao para remover um item da lista
+
+        self.remove_button = tk.Button(master, text="Remover", command=self.remove_item)
+        self.remove_button.pack()
+
         # Botao para salvar a lista em um arquivo de texto
         self.save_button = tk.Button(master, text="Salvar", command=self.save_list)
         self.save_button.pack()
@@ -37,6 +42,11 @@ class App:
         item = self.entry.get()
         self.listbox.insert(tk.END, item)
         self.entry.delete(0, tk.END)
+
+    def remove_item(self):
+        selection = self.listbox.curselection()
+        if selection:
+            self.listbox.delete(selection)
 
     def save_list(self):
         items = self.listbox.get(0, tk.END)
